@@ -1,0 +1,43 @@
+{
+  "name": "vite-plugin-dvc",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "types": "./src/client.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src/client.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf node_modules/.vite dist",
+    "dev": "tsup --watch",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "vite": ">=5.0.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "tinyglobby": "^0.2.14"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.2.1",
+    "tsup": "^8.4.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.18"
+  }
+}

@@ -16,7 +16,7 @@ export interface DvcPluginOptions {
   remote?: string
   /** Override base URL (e.g. CloudFront domain) */
   baseUrl?: string
-  /** Dev mode behavior: 'local' returns relative paths, 's3' returns S3 URLs (default: 'local') */
+  /** Dev mode behavior: 'local' returns relative paths, 's3' returns S3 URLs (default: 'local'). Overridden by VITE_PLUGIN_DVC_DEV env var. */
   dev?: 'local' | 's3'
 }
 
@@ -64,7 +64,8 @@ export default function dvcPlugin(options: DvcPluginOptions = {}): Plugin {
       }
 
       const isDev = config.command === 'serve'
-      const useLocal = isDev && (options.dev ?? 'local') === 'local'
+      const devMode = (process.env.VITE_PLUGIN_DVC_DEV as 'local' | 's3' | undefined) ?? options.dev ?? 'local'
+      const useLocal = isDev && devMode === 'local'
 
       if (useLocal) {
         for (const entry of entries) {

@@ -7,9 +7,27 @@ Vite plugin that reads [DVC] `.dvc` files at build time and exposes a `virtual:d
 
 ## Install
 
+This package isn't published to npm yet. Install from the GitHub [dist branch][dist]:
+
 ```bash
-pnpm add vite-plugin-dvc
+pnpm add runsascoded/vite-plugin-dvc#dist
 ```
+
+Or pin a specific commit:
+
+```bash
+pnpm add "github:runsascoded/vite-plugin-dvc#<sha>"
+```
+
+[`pnpm-dep-source`] (`pds`) can manage switching between local, GitHub, and npm sources:
+
+```bash
+pds init ../../path/to/vite-plugin-dvc  # register as a pds-managed dep
+pds gh vite-plugin-dvc                  # point at latest dist branch build
+pds local vite-plugin-dvc              # switch to local build for development
+```
+
+[dist]: https://github.com/runsascoded/vite-plugin-dvc/tree/dist
 
 ## Usage
 
@@ -74,3 +92,4 @@ The `virtual:dvc-data` module exports:
 5. In build mode, maps each file to its S3 DVC cache URL (`https://{bucket}.s3.amazonaws.com/.../files/md5/{xx}/{rest}`)
 
 [DVC]: https://dvc.org
+[`pnpm-dep-source`]: https://github.com/runsascoded/pnpm-dep-source

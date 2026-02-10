@@ -16,3 +16,4 @@ jobs:
     with:
       source_ref: ${{ inputs.src || '' }}
       dist_branch: ${{ inputs.dst || 'dist' }}
+      extra_files: src/client.d.ts

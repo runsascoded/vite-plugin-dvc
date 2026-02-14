@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-dvc",
-  "version": "0.1.0-dist.bacd24c",
+  "version": "0.1.0-dist.2172fe6",
   "type": "module",
   "main": "./index.cjs",
   "module": "./index.js",

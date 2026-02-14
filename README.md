@@ -71,10 +71,16 @@ interface DvcPluginOptions {
   remote?: string
   /** Override base URL (e.g. CloudFront domain) */
   baseUrl?: string
-  /** Dev mode behavior: 'local' returns relative paths, 's3' returns S3 URLs (default: 'local') */
+  /** Dev mode behavior: 'local' returns relative paths, 's3' returns S3 URLs (default: 'local'). Overridden by VITE_PLUGIN_DVC_DEV env var. */
   dev?: 'local' | 's3'
 }
 ```
+
+## Environment variables
+
+| Variable | Values | Description |
+|---|---|---|
+| `VITE_PLUGIN_DVC_DEV` | `local`, `s3` | Overrides the `dev` plugin option. Useful for testing S3 URLs during development without changing `vite.config.ts`. |
 
 ## Virtual module API
 
